@@ -1,5 +1,7 @@
 # Jun's Sandbox
 
+![ci badge](https://github.com/junnys6018/Juns-Sandbox/actions/workflows/test.yml/badge.svg)
+
 A collection of visualisations of various algorithms
 
 ## Prerequisites
