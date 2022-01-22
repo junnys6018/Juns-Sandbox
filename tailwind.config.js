@@ -18,13 +18,16 @@ module.exports = {
     container: {
       center: true,
       padding: {
-        DEFAULT: '1rem',
-        sm: '18px',
-        md: '24px',
-        lg: '16px',
-        xl: '30px',
+        DEFAULT: '0px',
+        sm: '16px',
+        md: '20px',
+        lg: '24px',
+        xl: '32px',
         '2xl': '40px',
       },
+    },
+    dropShadow: {
+      lg: '0px 4px 20px rgba(0, 0, 0, 0.12)',
     },
     extend: {},
   },
