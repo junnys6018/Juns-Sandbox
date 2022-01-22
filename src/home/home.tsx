@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 import Footer from '../footer/footer';
 import Card from './card';
+import ListItem from './list-item';
 import './home.css';
 
 const tempImage =
@@ -35,6 +36,30 @@ export default function Home() {
                 </div>
             </section>
             <section id="demos" className="home__card-container">
+                <ListItem
+                    to="#"
+                    title="Flock'n roll Flock'n roll Flock'n roll Flock'n roll Flock'n roll Flock'n roll"
+                    subTitle="Oscillators that sync and swarm Oscillators that sync and swarm Oscillators that sync and swarm"
+                    month="Jan"
+                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus."
+                    image={tempImage}
+                />
+                <ListItem
+                    to="#"
+                    title="Flock'n roll"
+                    subTitle="Oscillators that sync and swarm"
+                    month="Jan"
+                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus."
+                    image={tempImage}
+                />
+                <ListItem
+                    to="#"
+                    title="Flock'n roll"
+                    subTitle="Oscillators that sync and swarm"
+                    month="Jan"
+                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus."
+                    image={tempImage}
+                />
                 <Card
                     to="#"
                     title="Flock'n roll Flock'n roll Flock'n roll Flock'n roll Flock'n roll Flock'n roll"

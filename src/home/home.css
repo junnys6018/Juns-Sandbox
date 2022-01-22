@@ -29,13 +29,6 @@
     aspect-ratio: 1;
 }
 
-.home__card p {
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
 .home__card-container {
     @apply grid mx-auto gap-y-8 mb-8;
     grid-template-columns: 90vw;
@@ -50,9 +43,6 @@
     .home__card {
         @apply grid p-0 text-left;
         grid-template-columns: 200px auto;
-    }
-    .home__card p {
-        -webkit-line-clamp: 5;
     }
 
     .home__card > a {
