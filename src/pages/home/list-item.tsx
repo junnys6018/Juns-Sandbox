@@ -11,7 +11,7 @@ export interface ListItemProps {
 
 export default function ListItem(props: ListItemProps) {
     return (
-        <div className="flex flow-row">
+        <div className="flex flow-row mb-4 last:mb-0">
             <Link
                 to={props.to}
                 className="block w-20 h-20 mr-4 bg-center bg-cover flex-shrink-0"

@@ -11,7 +11,7 @@ export interface CardProps {
 
 export default function Card(props: CardProps) {
     return (
-        <div className="sm:grid sm:grid-cols-[200px_auto] text-center sm:text-left rounded-3xl drop-shadow-lg bg-white p-6 sm:p-0 relative hover:scale-105 transition-transform">
+        <div className="sm:grid sm:grid-cols-[200px_auto] text-center sm:text-left rounded-3xl drop-shadow-lg bg-white p-6 sm:p-0 mb-8 sm:mb-10 last:mb-0 relative hover:scale-105 transition-transform">
             <Link
                 to={props.to}
                 className="block rounded-full sm:rounded-none sm:rounded-l-3xl bg-center bg-cover mx-auto mb-1 w-25 h-25 sm:w-full sm:h-full"

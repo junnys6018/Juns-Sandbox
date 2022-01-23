@@ -1,13 +1,18 @@
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import Footer from 'components/footer/footer';
 import Card from './card';
 import ListItem from './list-item';
 import './home.css';
+import Switch from 'components/switch';
+import { FaList, FaThLarge } from 'react-icons/fa';
+import classNames from 'classnames';
 
 const tempImage =
     'https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80';
 
 export default function Home() {
+    const [view, setView] = useState<'GRID' | 'LIST'>('GRID');
+
     return (
         <Fragment>
             <section id="home" className="home__hero-container">
@@ -37,56 +42,83 @@ export default function Home() {
             </section>
             <section
                 id="demos"
-                className="grid grid-cols-[90vw] sm:grid-cols-[512px] xl:grid-cols-[512px_512px] mx-auto gap-y-8 mb-8 sm:gap-y-10 sm:mb-20 xl:gap-x-16"
+                className="grid grid-cols-[90vw] sm:grid-cols-[512px] xl:grid-cols-[512px_512px] mx-auto mb-8 sm:mb-20 xl:gap-x-16"
             >
-                <ListItem
-                    to="#"
-                    title="Flock'n roll Flock'n roll Flock'n roll Flock'n roll Flock'n roll Flock'n roll"
-                    subTitle="Oscillators that sync and swarm Oscillators that sync and swarm Oscillators that sync and swarm"
-                    month="Jan"
-                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus."
-                    image={tempImage}
-                />
-                <ListItem
-                    to="#"
-                    title="Flock'n roll"
-                    subTitle="Oscillators that sync and swarm"
-                    month="Jan"
-                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus."
-                    image={tempImage}
-                />
-                <ListItem
-                    to="#"
-                    title="Flock'n roll"
-                    subTitle="Oscillators that sync and swarm"
-                    month="Jan"
-                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus."
-                    image={tempImage}
-                />
-                <Card
-                    to="#"
-                    title="Flock'n roll Flock'n roll Flock'n roll Flock'n roll Flock'n roll Flock'n roll"
-                    subTitle="Oscillators that sync and swarm Oscillators that sync and swarm Oscillators that sync and swarm"
-                    month="Jan"
-                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus."
-                    image={tempImage}
-                />
-                <Card
-                    to="#"
-                    title="Flock'n roll"
-                    subTitle="Oscillators that sync and swarm"
-                    month="Jan"
-                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus."
-                    image={tempImage}
-                />
-                <Card
-                    to="#"
-                    title="Flock'n roll"
-                    subTitle="Oscillators that sync and swarm"
-                    month="Jan"
-                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus."
-                    image={tempImage}
-                />
+                <div className="flex flex-row xl:col-start-1 xl:col-span-2 mb-4">
+                    <FaThLarge
+                        className={classNames('ml-auto transition', view === 'GRID' ? 'text-pink-500' : 'text-neutral-900')}
+                    />
+                    <Switch
+                        className="mx-2.5"
+                        onChange={() =>
+                            setView(view => {
+                                if (view === 'GRID') {
+                                    return 'LIST';
+                                }
+                                return 'GRID';
+                            })
+                        }
+                    />
+                    <FaList
+                        className={classNames('transition', view === 'LIST' ? 'text-pink-500' : 'text-neutral-900')}
+                    />
+                </div>
+                {view === 'LIST' && (
+                    <Fragment>
+                        <ListItem
+                            to="#"
+                            title="Flock'n roll Flock'n roll Flock'n roll Flock'n roll Flock'n roll Flock'n roll"
+                            subTitle="Oscillators that sync and swarm Oscillators that sync and swarm Oscillators that sync and swarm"
+                            month="Jan"
+                            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus."
+                            image={tempImage}
+                        />
+                        <ListItem
+                            to="#"
+                            title="Flock'n roll"
+                            subTitle="Oscillators that sync and swarm"
+                            month="Jan"
+                            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus."
+                            image={tempImage}
+                        />
+                        <ListItem
+                            to="#"
+                            title="Flock'n roll"
+                            subTitle="Oscillators that sync and swarm"
+                            month="Jan"
+                            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus."
+                            image={tempImage}
+                        />
+                    </Fragment>
+                )}
+                {view === 'GRID' && (
+                    <Fragment>
+                        <Card
+                            to="#"
+                            title="Flock'n roll Flock'n roll Flock'n roll Flock'n roll Flock'n roll Flock'n roll"
+                            subTitle="Oscillators that sync and swarm Oscillators that sync and swarm Oscillators that sync and swarm"
+                            month="Jan"
+                            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus."
+                            image={tempImage}
+                        />
+                        <Card
+                            to="#"
+                            title="Flock'n roll"
+                            subTitle="Oscillators that sync and swarm"
+                            month="Jan"
+                            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus."
+                            image={tempImage}
+                        />
+                        <Card
+                            to="#"
+                            title="Flock'n roll"
+                            subTitle="Oscillators that sync and swarm"
+                            month="Jan"
+                            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus."
+                            image={tempImage}
+                        />
+                    </Fragment>
+                )}
             </section>
             <Footer />
         </Fragment>
