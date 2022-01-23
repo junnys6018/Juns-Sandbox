@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import Footer from '../footer/footer';
+import Footer from 'components/footer/footer';
 import Card from './card';
 import ListItem from './list-item';
 import './home.css';

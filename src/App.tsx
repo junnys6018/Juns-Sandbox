@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Home from './home/home';
-import NotFound from './not-found/not-found';
+import Home from './pages/home/home';
+import NotFound from './pages/not-found/not-found';
 
 export default function App() {
     return (
