@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import './switch.css';
 
 interface SwitchProps {
+    'data-testid'?: string;
     id?: string;
     name?: string;
     disabled?: boolean;
@@ -13,6 +14,7 @@ interface SwitchProps {
 export default function Switch(props: SwitchProps) {
     return (
         <input
+            data-testid={props['data-testid']}
             type="checkbox"
             id={props.id}
             name={props.name}

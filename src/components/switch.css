@@ -11,7 +11,7 @@
             disabled:opacity-70;
 }
 
-.switch:not(:disabled):checked {
+.switch:not(:disabled):checked, .switch.always-active {
     @apply bg-pink-300;
 }
 
@@ -32,7 +32,7 @@
     --x: 1.25rem;
 }
 
-.switch:not(:disabled):checked::after {
+.switch:not(:disabled):checked::after, .switch.always-active::after {
     @apply bg-pink-500;
     box-shadow: 0px 0px 4px theme('colors.pink.500');
 }

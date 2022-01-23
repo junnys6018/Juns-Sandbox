@@ -12,10 +12,6 @@ test('<Card /> snapshot', () => {
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend.',
         image: 'mock.png',
     };
-    const { asFragment } = render(
-        <MemoryRouter>
-            <Card {...cardProps} />
-        </MemoryRouter>,
-    );
+    const { asFragment } = render(<Card {...cardProps} />, { wrapper: MemoryRouter });
     expect(asFragment()).toMatchSnapshot();
 });
