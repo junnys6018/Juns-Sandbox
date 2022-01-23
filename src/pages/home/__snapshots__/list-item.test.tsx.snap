@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ListItem /> snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="flex flow-row mb-4 last:mb-0"
+  >
+    <a
+      class="block w-20 h-20 mr-4 bg-center bg-cover flex-shrink-0"
+      href="/"
+      style="background-image: url(mock.png);"
+    />
+    <div
+      class="flex-grow overflow-hidden"
+    >
+      <div
+        class="flex flex-row items-center"
+      >
+        <a
+          class="font-medium text-lg text-pink-600 truncate"
+          href="/"
+        >
+          "Flock'n roll"
+        </a>
+        <span
+          class="text-neutral-500 ml-auto pl-4"
+        >
+          Feb
+        </span>
+      </div>
+      <h3
+        class="text-sm text-neutral-600 line-clamp-2 mr-8"
+      >
+        Oscillators that sync and swarm
+      </h3>
+    </div>
+  </div>
+</DocumentFragment>
+`;
