@@ -1,15 +1,7 @@
 import { Link } from 'react-router-dom';
+import { CardOrListProps } from './home';
 
-export interface CardProps {
-    title: string;
-    subTitle: string;
-    month: string;
-    description: string;
-    image: string;
-    to: string;
-}
-
-export default function Card(props: CardProps) {
+export default function Card(props: CardOrListProps) {
     return (
         <div className="sm:grid sm:grid-cols-[200px_auto] text-center sm:text-left rounded-3xl drop-shadow-lg bg-white p-6 sm:p-0 mb-8 sm:mb-10 last:mb-0 relative hover:scale-105 transition-transform">
             <Link

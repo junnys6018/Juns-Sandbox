@@ -10,6 +10,45 @@ import classNames from 'classnames';
 const tempImage =
     'https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80';
 
+export interface CardOrListProps {
+    title: string;
+    subTitle: string;
+    month: string;
+    description: string;
+    image: string;
+    to: string;
+}
+
+const months: CardOrListProps[] = [
+    {
+        to: '#',
+        title: "Flock'n roll Flock'n roll Flock'n roll Flock'n roll Flock'n roll Flock'n roll",
+        subTitle: 'Oscillators that sync and swarm Oscillators that sync and swarm Oscillators that sync and swarm',
+        month: 'Jan',
+        description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus.',
+        image: tempImage,
+    },
+    {
+        to: '#',
+        title: "Flock'n roll",
+        subTitle: 'Oscillators that sync and swarm',
+        month: 'Jan',
+        description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus.',
+        image: tempImage,
+    },
+    {
+        to: '#',
+        title: "Flock'n roll",
+        subTitle: 'Oscillators that sync and swarm',
+        month: 'Jan',
+        description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus.',
+        image: tempImage,
+    },
+];
+
 export default function Home() {
     const [view, setView] = useState<'GRID' | 'LIST'>('GRID');
 
@@ -46,7 +85,10 @@ export default function Home() {
             >
                 <div className="flex flex-row xl:col-start-1 xl:col-span-2 mb-4">
                     <FaThLarge
-                        className={classNames('ml-auto transition', view === 'GRID' ? 'text-pink-500' : 'text-neutral-900')}
+                        className={classNames(
+                            'ml-auto transition',
+                            view === 'GRID' ? 'text-pink-500' : 'text-neutral-900',
+                        )}
                     />
                     <Switch
                         className="mx-2.5"
@@ -63,62 +105,8 @@ export default function Home() {
                         className={classNames('transition', view === 'LIST' ? 'text-pink-500' : 'text-neutral-900')}
                     />
                 </div>
-                {view === 'LIST' && (
-                    <Fragment>
-                        <ListItem
-                            to="#"
-                            title="Flock'n roll Flock'n roll Flock'n roll Flock'n roll Flock'n roll Flock'n roll"
-                            subTitle="Oscillators that sync and swarm Oscillators that sync and swarm Oscillators that sync and swarm"
-                            month="Jan"
-                            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus."
-                            image={tempImage}
-                        />
-                        <ListItem
-                            to="#"
-                            title="Flock'n roll"
-                            subTitle="Oscillators that sync and swarm"
-                            month="Jan"
-                            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus."
-                            image={tempImage}
-                        />
-                        <ListItem
-                            to="#"
-                            title="Flock'n roll"
-                            subTitle="Oscillators that sync and swarm"
-                            month="Jan"
-                            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus."
-                            image={tempImage}
-                        />
-                    </Fragment>
-                )}
-                {view === 'GRID' && (
-                    <Fragment>
-                        <Card
-                            to="#"
-                            title="Flock'n roll Flock'n roll Flock'n roll Flock'n roll Flock'n roll Flock'n roll"
-                            subTitle="Oscillators that sync and swarm Oscillators that sync and swarm Oscillators that sync and swarm"
-                            month="Jan"
-                            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus."
-                            image={tempImage}
-                        />
-                        <Card
-                            to="#"
-                            title="Flock'n roll"
-                            subTitle="Oscillators that sync and swarm"
-                            month="Jan"
-                            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus."
-                            image={tempImage}
-                        />
-                        <Card
-                            to="#"
-                            title="Flock'n roll"
-                            subTitle="Oscillators that sync and swarm"
-                            month="Jan"
-                            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus."
-                            image={tempImage}
-                        />
-                    </Fragment>
-                )}
+                {view === 'LIST' && months.map((props, index) => <ListItem key={index} {...props} />)}
+                {view === 'GRID' && months.map((props, index) => <Card key={index} {...props} />)}
             </section>
             <Footer />
         </Fragment>

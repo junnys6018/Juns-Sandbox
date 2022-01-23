@@ -1,15 +1,7 @@
 import { Link } from 'react-router-dom';
+import { CardOrListProps } from './home';
 
-export interface ListItemProps {
-    title: string;
-    subTitle: string;
-    month: string;
-    description: string;
-    image: string;
-    to: string;
-}
-
-export default function ListItem(props: ListItemProps) {
+export default function ListItem(props: CardOrListProps) {
     return (
         <div className="flex flow-row mb-4 last:mb-0">
             <Link
