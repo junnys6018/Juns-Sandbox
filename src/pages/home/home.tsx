@@ -53,9 +53,9 @@ export function Demos() {
 
 export function Hero() {
     return (
-        <section id="home" className="home__hero-container">
+        <section id="hero" className="home__hero-container relative mb-16 xl:mb-28">
             <div className="container text-center">
-                <h1 className="font-semibold text-5xl md:text-7xl xl:text-8xl mt-16 mb-12 home__hero-text">
+                <h1 className="font-semibold text-5xl md:text-7xl xl:text-8xl mt-16 mb-12 bg-clip-text text-transparent bg-gradient-to-r from-[#ff0099] to-[#ff9900]">
                     Jun's Sandbox
                 </h1>
                 <p className="mb-8 w-text mx-auto">

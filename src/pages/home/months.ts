@@ -11,7 +11,7 @@ const months: CardOrListProps[] = [
         subTitle: 'Oscillators that sync and swarm Oscillators that sync and swarm Oscillators that sync and swarm',
         month: 'Jan',
         description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus.',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus.',
         image: tempImage,
     },
     {
@@ -29,7 +29,7 @@ const months: CardOrListProps[] = [
         subTitle: 'Oscillators that sync and swarm',
         month: 'Mar',
         description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus.',
+            'Lorem ipsum dolor sit amet.',
         image: tempImage,
     },
 ];
