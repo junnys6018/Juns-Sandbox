@@ -1,11 +1,13 @@
 import { Fragment, useState } from 'react';
-import Footer from 'components/footer/footer';
+import Footer from 'components/footer';
 import Card from './card';
 import ListItem from './list-item';
 import './home.css';
 import Switch from 'components/switch';
-import { FaList, FaThLarge } from 'react-icons/fa';
+import { FaList } from 'react-icons/fa';
+import { BsGridFill } from 'react-icons/bs';
 import classNames from 'classnames';
+import Socials from 'components/socials';
 
 const tempImage =
     'https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80';
@@ -33,7 +35,7 @@ const months: CardOrListProps[] = [
         to: '#',
         title: "Flock'n roll",
         subTitle: 'Oscillators that sync and swarm',
-        month: 'Jan',
+        month: 'Feb',
         description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus.',
         image: tempImage,
@@ -42,7 +44,7 @@ const months: CardOrListProps[] = [
         to: '#',
         title: "Flock'n roll",
         subTitle: 'Oscillators that sync and swarm',
-        month: 'Jan',
+        month: 'Mar',
         description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend. Felis condimentum nam tempus suspendisse facilisis viverra tellus.',
         image: tempImage,
@@ -84,7 +86,7 @@ export default function Home() {
                 className="grid grid-cols-[90vw] sm:grid-cols-[512px] xl:grid-cols-[512px_512px] mx-auto mb-8 sm:mb-20 xl:gap-x-16"
             >
                 <div className="flex flex-row xl:col-start-1 xl:col-span-2 mb-4">
-                    <FaThLarge
+                    <BsGridFill
                         className={classNames(
                             'ml-auto transition',
                             view === 'GRID' ? 'text-pink-500' : 'text-neutral-900',
@@ -109,6 +111,7 @@ export default function Home() {
                 {view === 'GRID' && months.map((props, index) => <Card key={index} {...props} />)}
             </section>
             <Footer />
+            <Socials />
         </Fragment>
     );
 }
