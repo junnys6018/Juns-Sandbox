@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Card /> snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="group sm:grid sm:grid-cols-[200px_auto] text-center sm:text-left rounded-3xl drop-shadow-lg bg-white p-6 sm:p-0 mb-8 sm:mb-10 last:mb-0 relative hover:scale-105 transition-transform"
+  >
+    <a
+      class="block rounded-full sm:rounded-none sm:rounded-l-3xl bg-center bg-cover mx-auto mb-1 w-25 h-25 sm:w-full sm:h-full"
+      href="/"
+      style="background-image: url(mock.png);"
+    />
+    <div
+      class="sm:p-6 sm:overflow-hidden"
+    >
+      <div
+        class="sm:flex sm:flex-row sm:items-center"
+      >
+        <a
+          class="text-pink-600 font-medium text-lg block truncate w-min max-w-full mx-auto sm:m-0"
+          href="/"
+        >
+          "Flock'n roll"
+        </a>
+        <span
+          class="absolute sm:static right-6 sm:right-0 top-6 sm:top-0 sm:ml-auto sm:pl-4"
+        >
+          Feb
+        </span>
+      </div>
+      <h3
+        class="text-neutral-600 text-sm mb-3 truncate sm:mr-8"
+      >
+        Oscillators that sync and swarm
+      </h3>
+      <p
+        class="text-neutral-800 line-clamp-4 h-24 sm:line-clamp-5 sm:h-[7.5rem] sm:mr-8"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend.
+      </p>
+    </div>
+    <a
+      class="inline-block opacity-0 sm:group-hover:opacity-100 absolute right-4 bottom-4 p-2 text-neutral-900 hover:text-neutral-50 hover:bg-pink-500 rounded-full transition"
+      href="/"
+    >
+      <svg
+        fill="currentColor"
+        height="0.875rem"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 448 512"
+        width="0.875rem"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+        />
+      </svg>
+    </a>
+  </div>
+</DocumentFragment>
+`;

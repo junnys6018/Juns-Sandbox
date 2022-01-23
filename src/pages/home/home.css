@@ -1,0 +1,11 @@
+.home__link {
+    @apply text-pink-500 hover:text-pink-600;
+    background-image: linear-gradient(theme('colors.pink.500'), theme('colors.pink.500'));
+}
+
+.home__hero-container::before {
+    @apply absolute top-0 left-0 w-full -z-10 bg-no-repeat bg-top;
+    height: 640px;
+    content: '';
+    background-image: url('./background.svg');
+}
