@@ -35,7 +35,10 @@ export default function Home() {
                     </p>
                 </div>
             </section>
-            <section id="demos" className="home__card-container">
+            <section
+                id="demos"
+                className="grid grid-cols-[90vw] sm:grid-cols-[512px] xl:grid-cols-[512px_512px] mx-auto gap-y-8 mb-8 sm:gap-y-10 sm:mb-20 xl:gap-x-16"
+            >
                 <ListItem
                     to="#"
                     title="Flock'n roll Flock'n roll Flock'n roll Flock'n roll Flock'n roll Flock'n roll"

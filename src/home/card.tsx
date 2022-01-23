@@ -11,8 +11,12 @@ export interface CardProps {
 
 export default function Card(props: CardProps) {
     return (
-        <div className="home__card">
-            <Link to={props.to} style={{ backgroundImage: `url(${props.image})` }}></Link>
+        <div className="sm:grid sm:grid-cols-[200px_auto] text-center sm:text-left rounded-3xl drop-shadow-lg bg-white p-6 sm:p-0 relative hover:scale-105 transition-transform">
+            <Link
+                to={props.to}
+                className="block rounded-full sm:rounded-none sm:rounded-l-3xl bg-center bg-cover mx-auto mb-1 w-25 h-25 sm:w-full sm:h-full"
+                style={{ backgroundImage: `url(${props.image})` }}
+            ></Link>
             <div className="sm:p-6 sm:overflow-hidden">
                 <div className="sm:flex sm:flex-row sm:items-center">
                     <Link
@@ -25,8 +29,8 @@ export default function Card(props: CardProps) {
                         {props.month}
                     </span>
                 </div>
-                <h3 className="text-neutral-600 text-sm mb-3 truncate">{props.subTitle}</h3>
-                <p className="text-neutral-800 line-clamp-4 sm:line-clamp-5">{props.description}</p>
+                <h3 className="text-neutral-600 text-sm mb-3 truncate sm:mr-8">{props.subTitle}</h3>
+                <p className="text-neutral-800 line-clamp-4 h-24 sm:line-clamp-5 sm:h-[7.5rem]">{props.description}</p>
             </div>
         </div>
     );

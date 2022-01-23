@@ -29,7 +29,10 @@ module.exports = {
     dropShadow: {
       lg: '0px 4px 20px rgba(0, 0, 0, 0.12)',
     },
-    extend: {},
+    extend: {
+      spacing: {
+        '25': '6.25rem',
+      }},
   },
   plugins: [
     require('@tailwindcss/line-clamp'),
