@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import { Demos, Hero } from './home';
 
-jest.mock('./months', () => [
+jest.mock('months', () => [
     {
         to: '#',
         title: "Flock'n roll",

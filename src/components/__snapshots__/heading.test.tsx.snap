@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Heading /> snapshot 1`] = `
+<DocumentFragment>
+  <h1
+    class="font-semibold text-4xl text-pink-500 mb-4 mt-8"
+  >
+    "2.5D"
+  </h1>
+  <h2
+    class="font-semibold text-2xl text-neutral-700"
+  >
+    Voxel space rendering
+  </h2>
+</DocumentFragment>
+`;
+
+exports[`<Heading /> snapshot 2`] = `
+<DocumentFragment>
+  <h1
+    class="font-semibold text-4xl text-pink-500 mb-4 mt-8"
+  >
+    "Foo"
+  </h1>
+  <h2
+    class="font-semibold text-2xl text-neutral-700"
+  >
+    bar
+  </h2>
+</DocumentFragment>
+`;

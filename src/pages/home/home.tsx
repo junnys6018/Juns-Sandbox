@@ -8,7 +8,7 @@ import { FaList } from 'react-icons/fa';
 import { BsGridFill } from 'react-icons/bs';
 import classNames from 'classnames';
 import Socials from 'components/socials';
-import months from './months';
+import months from 'months';
 
 export interface CardOrListProps {
     title: string;

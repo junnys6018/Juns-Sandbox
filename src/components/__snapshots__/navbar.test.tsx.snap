@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Navbar /> snapshot 1`] = `
+<DocumentFragment>
+  <nav
+    class="container flex flex-row py-10"
+  >
+    <a
+      class="font-semibold text-3xl mr-auto bg-clip-text text-transparent bg-gradient-to-r from-[#ff0099] to-[#ff9900]"
+      href="/"
+    >
+      Jun's Sandbox
+    </a>
+    <a
+      class="font-medium text-xl text-pink-600"
+      href="/"
+    >
+      Home
+    </a>
+  </nav>
+</DocumentFragment>
+`;
