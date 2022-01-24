@@ -21,7 +21,7 @@
     }
 }
 
-@layer components {
+@layer utilities {
     .animate-underline {
         background-size: 0% 2px;
         background-repeat: no-repeat;
@@ -31,5 +31,9 @@
 
     .animate-underline:hover {
         background-size: 100% 2px;
+    }
+
+    .bg-image-pink-500 {
+        background-image: linear-gradient(theme('colors.pink.500'), theme('colors.pink.500'));
     }
 }

@@ -53,7 +53,10 @@ export function Demos() {
 
 export function Hero() {
     return (
-        <section id="hero" className="home__hero-container relative mb-16 xl:mb-28">
+        <section
+            id="hero"
+            className="relative mb-16 xl:mb-28 before:absolute before:top-0 before:left-0 before:w-full before:-z-10 before:bg-no-repeat before:bg-top before:h-[510px] before:bg-image-circles"
+        >
             <div className="container text-center">
                 <h1 className="font-semibold text-5xl md:text-7xl xl:text-8xl mt-16 mb-12 bg-clip-text text-transparent bg-gradient-to-r from-[#ff0099] to-[#ff9900]">
                     Jun's Sandbox
@@ -70,7 +73,7 @@ export function Hero() {
                         href="https://junnys6018.github.io/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="home__link animate-underline"
+                        className="bg-image-pink-500 text-pink-500 hover:text-pink-600 animate-underline"
                     >
                         portfolio.
                     </a>
