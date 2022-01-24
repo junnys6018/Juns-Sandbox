@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 import Footer from 'components/footer';
 import Card from './card';
 import ListItem from './list-item';
@@ -25,7 +25,7 @@ export function Demos() {
     return (
         <section
             id="demos"
-            className="grid grid-cols-[90vw] sm:grid-cols-[512px] xl:grid-cols-[512px_512px] mx-auto mb-8 sm:mb-20 xl:gap-x-16"
+            className="grid grid-cols-[90vw] sm:grid-cols-[512px] xl:grid-cols-[512px_512px] mx-auto mb-8 sm:mb-20 xl:gap-x-10"
         >
             <div className="flex flex-row xl:col-start-1 xl:col-span-2 mb-4">
                 <BsGridFill
@@ -85,11 +85,11 @@ export function Hero() {
 
 export default function Home() {
     return (
-        <Fragment>
+        <div className="flex flex-col h-screen overflow-y-scroll">
             <Hero />
             <Demos />
             <Footer />
             <Socials />
-        </Fragment>
+        </div>
     );
 }
