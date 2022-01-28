@@ -17,7 +17,7 @@ function MapOption(props: { value: string; src: string }) {
     return (
         <RadioGroup.Option
             value={props.value}
-            className="flex flex-col items-center focus-visible:outline-none cursor-pointer"
+            className="group flex flex-col items-center focus-visible:outline-none cursor-pointer"
         >
             {({ checked }) => (
                 <Fragment>
@@ -26,11 +26,14 @@ function MapOption(props: { value: string; src: string }) {
                         src={props.src}
                         className={classNames(
                             'rounded-lg transition',
-                            !checked && 'brightness-75 hover:brightness-100',
+                            !checked && 'brightness-75 group-hover:brightness-100',
                         )}
                     ></img>
                     <RadioGroup.Label
-                        className={classNames('font-medium text-sm', checked ? 'text-pink-500' : 'text-neutral-700')}
+                        className={classNames(
+                            'font-medium text-sm cursor-pointer',
+                            checked ? 'text-pink-500' : 'text-neutral-700',
+                        )}
                     >
                         {props.value}
                     </RadioGroup.Label>
@@ -52,7 +55,7 @@ function PathOption(props: { value: string; className?: string }) {
                 )
             }
         >
-            {props.value}
+            <RadioGroup.Label className="cursor-pointer">{props.value}</RadioGroup.Label>
         </RadioGroup.Option>
     );
 }
@@ -60,7 +63,7 @@ function PathOption(props: { value: string; className?: string }) {
 type Map = 'Aztec' | 'Tundra' | 'Plains' | 'Canyon';
 type Path = 'Rotate' | 'Linear' | 'Circle';
 
-interface SettingsPanelProps {
+export interface SettingsPanelProps {
     map: Map;
     path: Path;
     pitch: number;
@@ -72,7 +75,7 @@ interface SettingsPanelProps {
     setCameraHeight: React.Dispatch<React.SetStateAction<number>>;
 }
 
-function SettingsPanel(props: SettingsPanelProps) {
+export function SettingsPanel(props: SettingsPanelProps) {
     return (
         <div className="mx-auto drop-shadow-lg bg-white rounded-3xl p-8" style={{ width: 470, marginTop: 100 }}>
             <h3 className="font-medium text-neutral-900 mb-2.5">Map</h3>
