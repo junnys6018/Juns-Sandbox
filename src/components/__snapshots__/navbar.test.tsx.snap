@@ -3,7 +3,7 @@
 exports[`<Navbar /> snapshot 1`] = `
 <DocumentFragment>
   <nav
-    class="container flex flex-row py-10"
+    class="container flex flex-row items-center py-10"
   >
     <a
       class="font-semibold text-3xl mr-auto bg-clip-text text-transparent bg-gradient-to-r from-[#ff0099] to-[#ff9900]"

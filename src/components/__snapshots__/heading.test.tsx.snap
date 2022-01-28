@@ -5,7 +5,7 @@ exports[`<Heading /> snapshot 1`] = `
   <h1
     class="font-semibold text-4xl text-pink-500 mb-4 mt-8"
   >
-    "2.5D"
+    January - "2.5D"
   </h1>
   <h2
     class="font-semibold text-2xl text-neutral-700"
@@ -20,7 +20,7 @@ exports[`<Heading /> snapshot 2`] = `
   <h1
     class="font-semibold text-4xl text-pink-500 mb-4 mt-8"
   >
-    "Foo"
+    Foo
   </h1>
   <h2
     class="font-semibold text-2xl text-neutral-700"
