@@ -23,5 +23,5 @@
         "noUnusedLocals": true,
         "baseUrl": "src"
     },
-    "include": ["src"]
+    "include": ["src", "index.d.ts"]
 }
