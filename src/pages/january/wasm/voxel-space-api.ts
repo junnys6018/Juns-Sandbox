@@ -5,7 +5,16 @@ import dataUrl from './voxel-space.data';
 export interface VoxelSpaceApi {
     createContext: (colorMap: string, depthMap: string, background: number) => number;
     destroyContext: (context: number) => void;
-    render: (context: number, width: number, height: number, phi: number, xpos: number, ypos: number, pitch: number, cameraHeight: number) => number;
+    render: (
+        context: number,
+        width: number,
+        height: number,
+        phi: number,
+        xpos: number,
+        ypos: number,
+        pitch: number,
+        cameraHeight: number,
+    ) => number;
 }
 
 // Since webpack will change the name and potentially the path of the
@@ -25,10 +34,19 @@ const voxelSpaceApi: Promise<[VoxelSpaceModule, VoxelSpaceApi]> = Module({
     const api: VoxelSpaceApi = {
         createContext: instance.cwrap('create_voxel_space_context', 'number', ['string', 'string', 'number']),
         destroyContext: instance.cwrap('destroy_voxel_space_context', null, ['number']),
-        render: instance.cwrap('render_voxel_space', 'number', ['number', 'number', 'number', 'number', 'number', 'number', 'number', 'number']),
-    }
+        render: instance.cwrap('render_voxel_space', 'number', [
+            'number',
+            'number',
+            'number',
+            'number',
+            'number',
+            'number',
+            'number',
+            'number',
+        ]),
+    };
 
     return [instance, api];
-})
+});
 
 export default voxelSpaceApi;
