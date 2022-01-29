@@ -1,2 +1,2 @@
-let mock = jest.fn().mockResolvedValue(jest.fn());
+let mock = jest.fn().mockResolvedValue({ cwrap: jest.fn() });
 export default mock;
