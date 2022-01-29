@@ -3,7 +3,7 @@
 exports[`<Heading /> snapshot 1`] = `
 <DocumentFragment>
   <h1
-    class="font-semibold text-4xl text-pink-500 mb-4 mt-8"
+    class="font-semibold text-4xl text-pink-500 mb-4 md:mt-8"
   >
     January - "2.5D"
   </h1>
@@ -18,7 +18,7 @@ exports[`<Heading /> snapshot 1`] = `
 exports[`<Heading /> snapshot 2`] = `
 <DocumentFragment>
   <h1
-    class="font-semibold text-4xl text-pink-500 mb-4 mt-8"
+    class="font-semibold text-4xl text-pink-500 mb-4 md:mt-8"
   >
     Foo
   </h1>

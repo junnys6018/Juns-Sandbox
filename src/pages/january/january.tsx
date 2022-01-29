@@ -9,6 +9,8 @@ import Canyon from './maps/canyon.png';
 import Plains from './maps/plains.png';
 import Tundra from './maps/tundra.png';
 import voxelSpaceApi from './wasm/voxel-space-api';
+import aboutMarkdown from './about.md';
+import { AsyncMarkdown } from 'markdown';
 
 import { RadioGroup } from '@headlessui/react';
 import { Fragment, useEffect, useRef, useState } from 'react';
@@ -217,6 +219,8 @@ export default function January() {
                         setCameraHeight={setCameraHeight}
                     />
                 </div>
+                <h1 className="font-semibold text-4xl text-pink-500 my-8">About this demo</h1>
+                <AsyncMarkdown className="max-w-none" src={aboutMarkdown} />
             </div>
             <Footer />
             <Socials />

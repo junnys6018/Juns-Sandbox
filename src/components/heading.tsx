@@ -36,7 +36,7 @@ export default function Heading(props: HeadingProps) {
 
     return (
         <Fragment>
-            <h1 className="font-semibold text-4xl text-pink-500 mb-4 mt-8">{title}</h1>
+            <h1 className="font-semibold text-4xl text-pink-500 mb-4 md:mt-8">{title}</h1>
             <h2 className="font-semibold text-2xl text-neutral-700">{subTitle}</h2>
         </Fragment>
     );
