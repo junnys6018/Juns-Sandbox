@@ -3,8 +3,7 @@
 exports[`<SettingsPanel /> snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="mx-auto drop-shadow-lg bg-white rounded-3xl p-8"
-    style="width: 470px;"
+    class="drop-shadow-lg bg-white rounded-3xl p-8 flex-shrink-0 w-full xl:w-[470px]"
   >
     <h3
       class="font-medium text-neutral-900 mb-2.5"
@@ -12,7 +11,7 @@ exports[`<SettingsPanel /> snapshot 1`] = `
       Map
     </h3>
     <div
-      class="flex flex-row gap-6 mb-4"
+      class="grid grid-cols-4 gap-2 sm:gap-4 mb-4"
       id="headlessui-radiogroup-9"
       role="radiogroup"
     >
@@ -110,7 +109,7 @@ exports[`<SettingsPanel /> snapshot 1`] = `
       <div
         aria-checked="false"
         aria-labelledby="headlessui-label-10"
-        class="cursor-pointer text-xl py-1.5 px-4 focus-visible:outline-none bg-neutral-200 text-neutral-800 rounded-l-lg"
+        class="cursor-pointer text-base sm:text-xl py-1.5 px-4 focus-visible:outline-none bg-neutral-200 text-neutral-800 rounded-l-lg"
         id="headlessui-radiogroup-option-11"
         role="radio"
         tabindex="-1"
@@ -125,7 +124,7 @@ exports[`<SettingsPanel /> snapshot 1`] = `
       <div
         aria-checked="false"
         aria-labelledby="headlessui-label-12"
-        class="cursor-pointer text-xl py-1.5 px-4 focus-visible:outline-none bg-neutral-200 text-neutral-800"
+        class="cursor-pointer text-base sm:text-xl py-1.5 px-4 focus-visible:outline-none bg-neutral-200 text-neutral-800"
         id="headlessui-radiogroup-option-13"
         role="radio"
         tabindex="-1"
@@ -140,7 +139,7 @@ exports[`<SettingsPanel /> snapshot 1`] = `
       <div
         aria-checked="true"
         aria-labelledby="headlessui-label-14"
-        class="cursor-pointer text-xl py-1.5 px-4 focus-visible:outline-none bg-pink-500 text-neutral-50 drop-shadow-pink-sm rounded-r-lg"
+        class="cursor-pointer text-base sm:text-xl py-1.5 px-4 focus-visible:outline-none bg-pink-500 text-neutral-50 drop-shadow-pink-sm rounded-r-lg"
         id="headlessui-radiogroup-option-15"
         role="radio"
         tabindex="0"
@@ -162,7 +161,7 @@ exports[`<SettingsPanel /> snapshot 1`] = `
       class="w-full mb-4"
       max="1.5"
       min="0.2"
-      step="0.01"
+      step="0.02"
       type="range"
       value="0"
     />
@@ -175,7 +174,7 @@ exports[`<SettingsPanel /> snapshot 1`] = `
       class="w-full"
       max="150"
       min="30"
-      step="0.01"
+      step="1"
       type="range"
       value="0"
     />

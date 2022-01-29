@@ -50,7 +50,7 @@ function PathOption(props: { value: string; className?: string }) {
             value={props.value}
             className={({ checked }) =>
                 classNames(
-                    'cursor-pointer text-xl py-1.5 px-4 focus-visible:outline-none',
+                    'cursor-pointer text-base sm:text-xl py-1.5 px-4 focus-visible:outline-none',
                     checked ? 'bg-pink-500 text-neutral-50 drop-shadow-pink-sm' : 'bg-neutral-200 text-neutral-800',
                     props.className,
                 )
@@ -78,9 +78,9 @@ export interface SettingsPanelProps {
 
 export function SettingsPanel(props: SettingsPanelProps) {
     return (
-        <div className="mx-auto drop-shadow-lg bg-white rounded-3xl p-8" style={{ width: 470 }}>
+        <div className="drop-shadow-lg bg-white rounded-3xl p-8 flex-shrink-0 w-full xl:w-[470px]">
             <h3 className="font-medium text-neutral-900 mb-2.5">Map</h3>
-            <RadioGroup value={props.map} onChange={props.setMap} className="flex flex-row gap-6 mb-4">
+            <RadioGroup value={props.map} onChange={props.setMap} className="grid grid-cols-4 gap-2 sm:gap-4 mb-4">
                 <MapOption value="Aztec" src={Aztec} />
                 <MapOption value="Tundra" src={Tundra} />
                 <MapOption value="Plains" src={Plains} />
@@ -96,7 +96,7 @@ export function SettingsPanel(props: SettingsPanelProps) {
             <Slider
                 min={0.2}
                 max={1.5}
-                step={0.01}
+                step={0.02}
                 value={props.pitch}
                 onChange={e => props.setPitch(parseFloat(e.currentTarget.value))}
                 className="w-full mb-4"
@@ -105,7 +105,7 @@ export function SettingsPanel(props: SettingsPanelProps) {
             <Slider
                 min={30}
                 max={150}
-                step={0.01}
+                step={1}
                 value={props.cameraHeight}
                 onChange={e => props.setCameraHeight(parseFloat(e.currentTarget.value))}
                 className="w-full"
@@ -131,6 +131,9 @@ const animate: Animate = {
         return [phi, xpos, ypos];
     },
 };
+
+const canvasWidth = 600;
+const canvasHeight = 400;
 
 export default function January() {
     const [map, setMap] = useState<Map>('Aztec');
@@ -159,9 +162,6 @@ export default function January() {
         let rafId: number;
 
         voxelSpaceApi.then(([instance, api]) => {
-            const width = 300;
-            const height = 300;
-
             const canvasContext = canvasElement.current?.getContext('2d');
 
             const raf = (timestamp: number) => {
@@ -173,15 +173,15 @@ export default function January() {
 
                 const image = api.render(
                     voxelSpaceContext.current,
-                    width,
-                    height,
+                    canvasWidth,
+                    canvasHeight,
                     ...animate[path](timestamp),
                     pitch,
                     cameraHeight,
                 );
 
-                const imageView = new Uint8ClampedArray(instance.HEAPU8.buffer, image, width * height * 4);
-                const imageData = new ImageData(imageView, width, height);
+                const imageView = new Uint8ClampedArray(instance.HEAPU8.buffer, image, canvasWidth * canvasHeight * 4);
+                const imageData = new ImageData(imageView, canvasWidth, canvasHeight);
 
                 canvasContext.putImageData(imageData, 0, 0);
             };
@@ -197,9 +197,15 @@ export default function January() {
     return (
         <div className="flex flex-col min-h-screen">
             <Navbar />
-            <div className="container">
+            <div className="container mb-8">
                 <Heading month={1} />
-                <div className="flex flex-row">
+                <div className="flex flex-row flex-wrap mt-6 gap-x-10 gap-y-6">
+                    <canvas
+                        className="flex-grow pixelated max-w-full"
+                        width={canvasWidth}
+                        height={canvasHeight}
+                        ref={canvasElement}
+                    ></canvas>
                     <SettingsPanel
                         map={map}
                         path={path}
@@ -210,7 +216,6 @@ export default function January() {
                         setPitch={setPitch}
                         setCameraHeight={setCameraHeight}
                     />
-                    <canvas style={{ width: 300, height: 300 }} width={300} height={300} ref={canvasElement}></canvas>
                 </div>
             </div>
             <Footer />

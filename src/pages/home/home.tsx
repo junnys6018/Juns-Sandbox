@@ -16,6 +16,7 @@ export interface CardOrListProps {
     month: string;
     description: string;
     image: string;
+    pixelated?: boolean;
     to: string;
 }
 
@@ -63,7 +64,7 @@ export function Hero() {
                 </h1>
                 <p className="mb-8 w-text mx-auto">
                     This year I challenged myself to program an interesting visualisation of a math concept or algorithm
-                    each month. I have a wide interest in math and computer science so you will find demos from many
+                    each month. I have a wide interest in math and computer science so expect to find demos from many
                     areas including cellular automata, path finding algorithms, fractals, ray tracing, and more...
                 </p>
                 <p className="w-text mx-auto">

@@ -48,4 +48,8 @@
     .drop-shadow-pink-sm {
         filter: drop-shadow(1px 1px 3px #ec4899a0);
     }
+
+    .pixelated {
+        image-rendering: pixelated;
+    }
 }
