@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Hero /> snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="relative mb-16 xl:mb-28 before:absolute before:top-0 before:left-0 before:w-full before:-z-10 before:bg-no-repeat before:bg-top before:h-[510px] before:bg-image-circles"
+    id="hero"
+  >
+    <div
+      class="container text-center"
+    >
+      <h1
+        class="font-semibold text-5xl md:text-7xl xl:text-8xl mt-16 mb-12 bg-clip-text text-transparent bg-gradient-to-r from-[#ff0099] to-[#ff9900]"
+      >
+        Jun's Sandbox
+      </h1>
+      <p
+        class="mb-8 w-text mx-auto"
+      >
+        This year I challenged myself to program an interesting visualisation of a math concept or algorithm each month. I have a wide interest in math and computer science so expect to find demos from many areas including cellular automata, path finding algorithms, fractals, ray tracing, and more...
+      </p>
+      <p
+        class="w-text mx-auto"
+      >
+        I hope you have fun tinkering with each of the demos as much as I had fun making them! To see more of my work, take a look at my 
+        <a
+          class="bg-image-pink-500 text-pink-500 hover:text-pink-600 animate-underline"
+          href="https://junnys6018.github.io/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          portfolio.
+        </a>
+      </p>
+    </div>
+  </section>
+</DocumentFragment>
+`;

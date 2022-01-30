@@ -1,0 +1,15 @@
+.slider-thumb {
+    @apply w-5 h-5 bg-pink-500 rounded-full focus:outline-none cursor-pointer shadow-[0_0_4px_#ec4899];
+}
+
+.slider-track {
+    @apply h-2 bg-neutral-200 rounded-full translate-y-1.5;
+}
+
+.slider-track-0 {
+    @apply !bg-pink-400;
+}
+
+.slider {
+    @apply h-5;
+}
