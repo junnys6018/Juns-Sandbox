@@ -157,27 +157,57 @@ exports[`<SettingsPanel /> snapshot 1`] = `
     >
       Pitch
     </h3>
-    <input
-      class="w-full mb-4"
-      max="1.5"
-      min="0.2"
-      step="0.02"
-      type="range"
-      value="0"
-    />
+    <div
+      class="slider w-full mb-4"
+      style="position: relative;"
+    >
+      <div
+        class="slider-track slider-track-0"
+        style="position: absolute; left: 0px; right: 0px;"
+      />
+      <div
+        class="slider-track slider-track-1"
+        style="position: absolute; left: 0px; right: 0px;"
+      />
+      <div
+        aria-orientation="horizontal"
+        aria-valuemax="1.5"
+        aria-valuemin="0.2"
+        aria-valuenow="0.2"
+        class="slider-thumb slider-thumb-0 "
+        role="slider"
+        style="position: absolute; z-index: 1; left: 0px;"
+        tabindex="0"
+      />
+    </div>
     <h3
       class="font-medium text-neutral-900 mb-2.5"
     >
       Camera height
     </h3>
-    <input
-      class="w-full"
-      max="150"
-      min="30"
-      step="1"
-      type="range"
-      value="0"
-    />
+    <div
+      class="slider w-full"
+      style="position: relative;"
+    >
+      <div
+        class="slider-track slider-track-0"
+        style="position: absolute; left: 0px; right: 0px;"
+      />
+      <div
+        class="slider-track slider-track-1"
+        style="position: absolute; left: 0px; right: 0px;"
+      />
+      <div
+        aria-orientation="horizontal"
+        aria-valuemax="150"
+        aria-valuemin="30"
+        aria-valuenow="30"
+        class="slider-thumb slider-thumb-0 "
+        role="slider"
+        style="position: absolute; z-index: 1; left: 0px;"
+        tabindex="0"
+      />
+    </div>
   </div>
 </DocumentFragment>
 `;

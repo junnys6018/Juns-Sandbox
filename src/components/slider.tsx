@@ -1,28 +1,27 @@
 import classNames from 'classnames';
+import ReactSlider from 'react-slider';
+import './slider.css';
 
 export interface SliderProps {
-    id?: string;
-    name?: string;
     min?: number;
     max?: number;
     step?: number;
     value?: number;
-    onChange?: React.ChangeEventHandler<HTMLInputElement>;
+    onChange?: (value: number, index: number) => void;
     className?: string;
 }
 
 export default function Slider(props: SliderProps) {
     return (
-        <input
-            type="range"
-            id={props.id}
-            name={props.name}
+        <ReactSlider
             min={props.min}
             max={props.max}
             step={props.step}
-            onChange={props.onChange}
             value={props.value}
-            className={classNames('', props.className)}
-        ></input>
+            onChange={props.onChange}
+            className={classNames('slider', props.className)}
+            trackClassName="slider-track"
+            thumbClassName="slider-thumb"
+        />
     );
 }

@@ -98,9 +98,9 @@ export function SettingsPanel(props: SettingsPanelProps) {
             <Slider
                 min={0.2}
                 max={1.5}
-                step={0.02}
+                step={0.01}
                 value={props.pitch}
-                onChange={e => props.setPitch(parseFloat(e.currentTarget.value))}
+                onChange={pitch => props.setPitch(pitch)}
                 className="w-full mb-4"
             ></Slider>
             <h3 className="font-medium text-neutral-900 mb-2.5">Camera height</h3>
@@ -109,7 +109,7 @@ export function SettingsPanel(props: SettingsPanelProps) {
                 max={150}
                 step={1}
                 value={props.cameraHeight}
-                onChange={e => props.setCameraHeight(parseFloat(e.currentTarget.value))}
+                onChange={height => props.setCameraHeight(height)}
                 className="w-full"
             ></Slider>
         </div>
