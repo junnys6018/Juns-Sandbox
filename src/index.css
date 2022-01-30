@@ -12,16 +12,20 @@
         background-color: #fdfdfd;
     }
 
+    ::selection {
+        @apply bg-pink-500 text-white;
+    }
+
+    :focus-visible {
+        outline: theme('colors.pink.500') auto 1px;
+    }
+}
+
+@layer utilities {
     .w-text {
         max-width: 60ch;
     }
 
-    ::selection {
-        @apply bg-pink-500 text-white;
-    }
-}
-
-@layer components {
     .animate-underline {
         background-size: 0% 2px;
         background-repeat: no-repeat;
@@ -31,5 +35,21 @@
 
     .animate-underline:hover {
         background-size: 100% 2px;
+    }
+
+    .bg-image-pink-500 {
+        background-image: linear-gradient(theme('colors.pink.500'), theme('colors.pink.500'));
+    }
+
+    .drop-shadow-pink-md {
+        filter: drop-shadow(0 0 4px theme('colors.pink.500'));
+    }
+
+    .drop-shadow-pink-sm {
+        filter: drop-shadow(1px 1px 3px #ec4899a0);
+    }
+
+    .pixelated {
+        image-rendering: pixelated;
     }
 }

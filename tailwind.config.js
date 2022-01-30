@@ -1,7 +1,6 @@
 module.exports = {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-    "./public/index.html",
+    "./src/**/*.{js,jsx,ts,tsx,md}",
   ],
   theme: {
     fontFamily: {
@@ -18,7 +17,7 @@ module.exports = {
     container: {
       center: true,
       padding: {
-        DEFAULT: '0px',
+        DEFAULT: '8px',
         sm: '16px',
         md: '20px',
         lg: '24px',
@@ -36,5 +35,6 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/line-clamp'),
+    require('@tailwindcss/typography'),
   ],
 }

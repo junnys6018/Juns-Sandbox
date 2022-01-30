@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import { CardOrListProps } from './home';
 
@@ -6,7 +7,10 @@ export default function ListItem(props: CardOrListProps) {
         <div className="flex flow-row mb-4 last:mb-0">
             <Link
                 to={props.to}
-                className="block w-20 h-20 mr-4 bg-center bg-cover flex-shrink-0"
+                className={classNames(
+                    'block w-20 h-20 mr-4 bg-center bg-cover flex-shrink-0',
+                    props.pixelated && 'pixelated',
+                )}
                 style={{ backgroundImage: `url(${props.image})` }}
             ></Link>
             <div className="flex-grow overflow-hidden">

@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 import Footer from 'components/footer';
 import Card from './card';
 import ListItem from './list-item';
@@ -8,7 +8,7 @@ import { FaList } from 'react-icons/fa';
 import { BsGridFill } from 'react-icons/bs';
 import classNames from 'classnames';
 import Socials from 'components/socials';
-import months from './months';
+import months from 'months';
 
 export interface CardOrListProps {
     title: string;
@@ -16,6 +16,7 @@ export interface CardOrListProps {
     month: string;
     description: string;
     image: string;
+    pixelated?: boolean;
     to: string;
 }
 
@@ -25,7 +26,7 @@ export function Demos() {
     return (
         <section
             id="demos"
-            className="grid grid-cols-[90vw] sm:grid-cols-[512px] xl:grid-cols-[512px_512px] mx-auto mb-8 sm:mb-20 xl:gap-x-16"
+            className="grid grid-cols-[90vw] sm:grid-cols-[512px] xl:grid-cols-[512px_512px] mx-auto mb-8 sm:mb-20 xl:gap-x-10"
         >
             <div className="flex flex-row xl:col-start-1 xl:col-span-2 mb-4">
                 <BsGridFill
@@ -53,14 +54,17 @@ export function Demos() {
 
 export function Hero() {
     return (
-        <section id="hero" className="home__hero-container relative mb-16 xl:mb-28">
+        <section
+            id="hero"
+            className="relative mb-16 xl:mb-28 before:absolute before:top-0 before:left-0 before:w-full before:-z-10 before:bg-no-repeat before:bg-top before:h-[510px] before:bg-image-circles"
+        >
             <div className="container text-center">
                 <h1 className="font-semibold text-5xl md:text-7xl xl:text-8xl mt-16 mb-12 bg-clip-text text-transparent bg-gradient-to-r from-[#ff0099] to-[#ff9900]">
                     Jun's Sandbox
                 </h1>
                 <p className="mb-8 w-text mx-auto">
                     This year I challenged myself to program an interesting visualisation of a math concept or algorithm
-                    each month. I have a wide interest in math and computer science so you will find demos from many
+                    each month. I have a wide interest in math and computer science so expect to find demos from many
                     areas including cellular automata, path finding algorithms, fractals, ray tracing, and more...
                 </p>
                 <p className="w-text mx-auto">
@@ -70,7 +74,7 @@ export function Hero() {
                         href="https://junnys6018.github.io/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="home__link animate-underline"
+                        className="bg-image-pink-500 text-pink-500 hover:text-pink-600 animate-underline"
                     >
                         portfolio.
                     </a>
@@ -82,11 +86,11 @@ export function Hero() {
 
 export default function Home() {
     return (
-        <Fragment>
+        <div className="flex flex-col h-screen overflow-y-scroll">
             <Hero />
             <Demos />
             <Footer />
             <Socials />
-        </Fragment>
+        </div>
     );
 }

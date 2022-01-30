@@ -1,0 +1,213 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SettingsPanel /> snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="drop-shadow-lg bg-white rounded-3xl p-8 flex-shrink-0 w-full xl:w-[470px]"
+  >
+    <h3
+      class="font-medium text-neutral-900 mb-2.5"
+    >
+      Map
+    </h3>
+    <div
+      class="grid grid-cols-4 gap-2 sm:gap-4 mb-4"
+      id="headlessui-radiogroup-9"
+      role="radiogroup"
+    >
+      <div
+        aria-checked="true"
+        aria-labelledby="headlessui-label-1"
+        class="group flex flex-col items-center focus-visible:outline-none cursor-pointer"
+        id="headlessui-radiogroup-option-2"
+        role="radio"
+        tabindex="0"
+      >
+        <img
+          alt="Aztec"
+          class="rounded-lg transition"
+          src="aztec.png"
+        />
+        <label
+          class="font-medium text-sm cursor-pointer text-pink-500"
+          id="headlessui-label-1"
+        >
+          Aztec
+        </label>
+      </div>
+      <div
+        aria-checked="false"
+        aria-labelledby="headlessui-label-3"
+        class="group flex flex-col items-center focus-visible:outline-none cursor-pointer"
+        id="headlessui-radiogroup-option-4"
+        role="radio"
+        tabindex="-1"
+      >
+        <img
+          alt="Tundra"
+          class="rounded-lg transition brightness-75 group-hover:brightness-100"
+          src="tundra.png"
+        />
+        <label
+          class="font-medium text-sm cursor-pointer text-neutral-700"
+          id="headlessui-label-3"
+        >
+          Tundra
+        </label>
+      </div>
+      <div
+        aria-checked="false"
+        aria-labelledby="headlessui-label-5"
+        class="group flex flex-col items-center focus-visible:outline-none cursor-pointer"
+        id="headlessui-radiogroup-option-6"
+        role="radio"
+        tabindex="-1"
+      >
+        <img
+          alt="Plains"
+          class="rounded-lg transition brightness-75 group-hover:brightness-100"
+          src="plains.png"
+        />
+        <label
+          class="font-medium text-sm cursor-pointer text-neutral-700"
+          id="headlessui-label-5"
+        >
+          Plains
+        </label>
+      </div>
+      <div
+        aria-checked="false"
+        aria-labelledby="headlessui-label-7"
+        class="group flex flex-col items-center focus-visible:outline-none cursor-pointer"
+        id="headlessui-radiogroup-option-8"
+        role="radio"
+        tabindex="-1"
+      >
+        <img
+          alt="Canyon"
+          class="rounded-lg transition brightness-75 group-hover:brightness-100"
+          src="canyon.png"
+        />
+        <label
+          class="font-medium text-sm cursor-pointer text-neutral-700"
+          id="headlessui-label-7"
+        >
+          Canyon
+        </label>
+      </div>
+    </div>
+    <h3
+      class="font-medium text-neutral-900 mb-2.5"
+    >
+      Path
+    </h3>
+    <div
+      class="inline-flex flex-row mb-4"
+      id="headlessui-radiogroup-16"
+      role="radiogroup"
+    >
+      <div
+        aria-checked="false"
+        aria-labelledby="headlessui-label-10"
+        class="cursor-pointer text-base sm:text-xl py-1.5 px-4 focus-visible:outline-none bg-neutral-200 text-neutral-800 rounded-l-lg"
+        id="headlessui-radiogroup-option-11"
+        role="radio"
+        tabindex="-1"
+      >
+        <label
+          class="cursor-pointer"
+          id="headlessui-label-10"
+        >
+          Rotate
+        </label>
+      </div>
+      <div
+        aria-checked="false"
+        aria-labelledby="headlessui-label-12"
+        class="cursor-pointer text-base sm:text-xl py-1.5 px-4 focus-visible:outline-none bg-neutral-200 text-neutral-800"
+        id="headlessui-radiogroup-option-13"
+        role="radio"
+        tabindex="-1"
+      >
+        <label
+          class="cursor-pointer"
+          id="headlessui-label-12"
+        >
+          Linear
+        </label>
+      </div>
+      <div
+        aria-checked="true"
+        aria-labelledby="headlessui-label-14"
+        class="cursor-pointer text-base sm:text-xl py-1.5 px-4 focus-visible:outline-none bg-pink-500 text-neutral-50 drop-shadow-pink-sm rounded-r-lg"
+        id="headlessui-radiogroup-option-15"
+        role="radio"
+        tabindex="0"
+      >
+        <label
+          class="cursor-pointer"
+          id="headlessui-label-14"
+        >
+          Circle
+        </label>
+      </div>
+    </div>
+    <h3
+      class="font-medium text-neutral-900 mb-2.5"
+    >
+      Pitch
+    </h3>
+    <div
+      class="slider w-full mb-4"
+      style="position: relative;"
+    >
+      <div
+        class="slider-track slider-track-0"
+        style="position: absolute; left: 0px; right: 0px;"
+      />
+      <div
+        class="slider-track slider-track-1"
+        style="position: absolute; left: 0px; right: 0px;"
+      />
+      <div
+        aria-orientation="horizontal"
+        aria-valuemax="1.5"
+        aria-valuemin="0.2"
+        aria-valuenow="0.2"
+        class="slider-thumb slider-thumb-0 "
+        role="slider"
+        style="position: absolute; z-index: 1; left: 0px;"
+        tabindex="0"
+      />
+    </div>
+    <h3
+      class="font-medium text-neutral-900 mb-2.5"
+    >
+      Camera height
+    </h3>
+    <div
+      class="slider w-full"
+      style="position: relative;"
+    >
+      <div
+        class="slider-track slider-track-0"
+        style="position: absolute; left: 0px; right: 0px;"
+      />
+      <div
+        class="slider-track slider-track-1"
+        style="position: absolute; left: 0px; right: 0px;"
+      />
+      <div
+        aria-orientation="horizontal"
+        aria-valuemax="150"
+        aria-valuemin="30"
+        aria-valuenow="30"
+        class="slider-thumb slider-thumb-0 "
+        role="slider"
+        style="position: absolute; z-index: 1; left: 0px;"
+        tabindex="0"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
