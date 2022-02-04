@@ -3,7 +3,7 @@
 ![ci badge](https://github.com/junnys6018/Juns-Sandbox/actions/workflows/test.yml/badge.svg)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/241536ee-ce84-4514-9035-129b1cbb4e2b/deploy-status)](https://app.netlify.com/sites/juns-sandbox/deploys)
 
-A collection of visualisations of various algorithms
+A collection of random demos, [live site](https://sandbox.junlim.dev/)
 
 ## Prerequisites
 
