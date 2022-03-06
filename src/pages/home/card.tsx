@@ -5,7 +5,7 @@ import { CardOrListProps } from './home';
 
 export default function Card(props: CardOrListProps) {
     return (
-        <div className="group sm:grid sm:grid-cols-[200px_auto] text-center sm:text-left rounded-3xl drop-shadow-lg bg-white p-6 sm:p-0 mb-8 sm:mb-10 last:mb-0 relative transition-transform">
+        <div className="group sm:grid sm:grid-cols-[200px_auto] text-center sm:text-left rounded-3xl drop-shadow-lg bg-white p-6 sm:p-0 mb-8 sm:mb-10 last:mb-0 xl:last:mb-10 relative transition-transform">
             <Link
                 to={props.to}
                 className={classNames(
