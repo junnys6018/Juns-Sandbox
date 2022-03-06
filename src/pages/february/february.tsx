@@ -118,7 +118,7 @@ function CellularAutomataComponent(props: CellularAutomataComponentProps) {
     );
 }
 
-interface SettingsPanelProps {
+export interface SettingsPanelProps {
     paused: boolean;
     togglePaused: () => void;
     updateFunction: UpdateFunction;
@@ -146,7 +146,7 @@ function UpdateFunctionOption(props: { value: UpdateFunction }) {
     );
 }
 
-function SettingsPanel(props: SettingsPanelProps) {
+export function SettingsPanel(props: SettingsPanelProps) {
     return (
         <div className="flex flex-col items-start drop-shadow-lg bg-white rounded-3xl p-8 flex-shrink-0 w-full xl:w-[470px]">
             <div className="flex flex-row items-center gap-10">
