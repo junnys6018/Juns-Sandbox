@@ -3,8 +3,8 @@ type color = [number, number, number];
 export abstract class CellularAutomaton {
     abstract update(oldImage: ImageData, newImage: ImageData, x: number, y: number): void;
 
-    init(_context: CanvasRenderingContext2D, _width: number, _height: number) { }
-    finishFrame() { }
+    init(_context: CanvasRenderingContext2D, _width: number, _height: number) {}
+    finishFrame() {}
 
     // helper function
     get(image: ImageData) {
@@ -59,16 +59,25 @@ export class Cyclic extends CellularAutomaton {
         this.numStates = numStates;
         this.states = Array<number>(width * height);
         this.newStates = Array<number>(width * height);
-
         this.colors = Array<color>(numStates);
+    }
 
-        for (let i = 0; i < numStates; i++) {
+    init(context: CanvasRenderingContext2D, width: number, height: number) {
+        const image = context.getImageData(0, 0, width, height);
+
+        for (let i = 0; i < this.numStates; i++) {
             this.colors[i] = [rand(255), rand(255), rand(255)];
         }
 
-        for (let i = 0; i < width * height; i++) {
-            this.states[i] = rand(numStates);
+        for (let y = 0; y < image.height; y++) {
+            for (let x = 0; x < image.width; x++) {
+                const idx = y * width + x;
+                this.states[idx] = rand(this.numStates);
+                set(image, x, y, ...this.colors[this.states[idx]]);
+            }
         }
+
+        context.putImageData(image, 0, 0);
     }
 
     update(oldImage: ImageData, newImage: ImageData, x: number, y: number): void {

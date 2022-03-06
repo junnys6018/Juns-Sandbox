@@ -1,5 +1,4 @@
 import { RadioGroup } from '@headlessui/react';
-import classNames from 'classnames';
 import Footer from 'components/footer';
 import Heading from 'components/heading';
 import Navbar from 'components/navbar';
@@ -9,20 +8,67 @@ import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
 import { FaPause, FaPlay, FaRedoAlt } from 'react-icons/fa';
 import { CellularAutomaton, Cyclic, SteppingStone } from './cellular-automaton';
 
-interface CanvasProps {
+interface CellularAutomataComponentProps {
     width: number;
     height: number;
-    className?: string;
+    children: (props: {
+        paused: boolean;
+        togglePaused: () => void;
+        updateFunction: UpdateFunction;
+        setUpdateFunction: (updateFunction: UpdateFunction) => void;
+        downloadImage: () => void;
+        reset: () => void;
+    }) => React.ReactNode;
 }
 
 const canvasWidth = 300;
 const canvasHeight = 200;
 
-const automaton: CellularAutomaton = [new SteppingStone(), new Cyclic(canvasWidth, canvasHeight, 14)][0];
-
-function CellularAutomataComponent(props: CanvasProps) {
+function CellularAutomataComponent(props: CellularAutomataComponentProps) {
     const canvasElement = useRef<HTMLCanvasElement>(null);
 
+    const [paused, setPaused] = useState(false);
+    const togglePaused = useCallback(() => setPaused(p => !p), []);
+
+    const [updateFunction, _setUpdateFunction] = useState<UpdateFunction>('Stepping Stone');
+    const [automaton, setAutomaton] = useState<CellularAutomaton>(new SteppingStone());
+
+    const setUpdateFunction = useCallback((updateFunction: UpdateFunction) => {
+        _setUpdateFunction(updateFunction);
+        switch (updateFunction) {
+            case 'Cyclic':
+                setAutomaton(new Cyclic(canvasWidth, canvasHeight, 14));
+                break;
+            case 'Stepping Stone':
+                setAutomaton(new SteppingStone());
+                break;
+        }
+    }, []);
+
+    const downloadImage = useCallback(() => {
+        const canvas = canvasElement.current;
+        if (!canvas) {
+            return;
+        }
+
+        const link = document.createElement('a');
+        link.download = 'generative-art.png';
+        link.href = canvas.toDataURL();
+        link.click();
+    }, []);
+
+    // call init on automaton every time it has changed
+    const reset = useCallback(() => {
+        const canvasContext = canvasElement.current?.getContext('2d');
+        if (!canvasContext) {
+            return;
+        }
+        automaton.init(canvasContext, props.width, props.height);
+    }, [automaton, props.height, props.width]);
+
+    useEffect(reset, [reset]);
+
+    // animate the canvas
     useEffect(() => {
         const canvasContext = canvasElement.current?.getContext('2d');
         if (!canvasContext) {
@@ -30,10 +76,14 @@ function CellularAutomataComponent(props: CanvasProps) {
         }
 
         let rafId: number;
-        automaton.init(canvasContext, props.width, props.height);
 
         const raf = () => {
             rafId = requestAnimationFrame(raf);
+
+            if (paused) {
+                return;
+            }
+
             const oldImage = canvasContext.getImageData(0, 0, props.width, props.height);
             const newImage = canvasContext.createImageData(props.width, props.height);
 
@@ -51,15 +101,18 @@ function CellularAutomataComponent(props: CanvasProps) {
         return () => {
             cancelAnimationFrame(rafId);
         };
-    }, [props.height, props.width]);
+    }, [automaton, paused, props.height, props.width]);
 
     return (
-        <canvas
-            className={classNames('flex-grow pixelated max-w-full', props.className)}
-            width={props.width}
-            height={props.height}
-            ref={canvasElement}
-        ></canvas>
+        <Fragment>
+            <canvas
+                className="flex-grow pixelated max-w-full"
+                width={props.width}
+                height={props.height}
+                ref={canvasElement}
+            ></canvas>
+            {props.children({ paused, togglePaused, updateFunction, setUpdateFunction, downloadImage, reset })}
+        </Fragment>
     );
 }
 
@@ -67,7 +120,9 @@ interface SettingsPanelProps {
     paused: boolean;
     togglePaused: () => void;
     updateFunction: UpdateFunction;
-    setUpdateFunction: React.Dispatch<React.SetStateAction<UpdateFunction>>;
+    setUpdateFunction: (updateFunction: UpdateFunction) => void;
+    downloadImage: () => void;
+    reset: () => void;
 }
 
 type UpdateFunction = 'Stepping Stone' | 'Cyclic';
@@ -104,18 +159,24 @@ function SettingsPanel(props: SettingsPanelProps) {
                     )}
                 </button>
 
-                <button className="bg-neutral-200 hover:bg-neutral-300 rounded-full w-16 h-16 flex items-center justify-center">
+                <button
+                    onClick={props.reset}
+                    className="bg-neutral-200 hover:bg-neutral-300 rounded-full w-16 h-16 flex items-center justify-center"
+                >
                     <FaRedoAlt className="text-neutral-900 w-6 h-6" />
                 </button>
             </div>
 
             <h3 className="font-medium text-neutral-900 mb-2.5 mt-6">Update Function</h3>
             <RadioGroup value={props.updateFunction} onChange={props.setUpdateFunction} className="mb-6">
-                <UpdateFunctionOption value="Cyclic" />
                 <UpdateFunctionOption value="Stepping Stone" />
+                <UpdateFunctionOption value="Cyclic" />
             </RadioGroup>
 
-            <button className="flex items-center justify-center mt-auto font-medium bg-pink-500 hover:bg-pink-600 rounded-lg text-neutral-50 py-2 px-3">
+            <button
+                onClick={props.downloadImage}
+                className="flex items-center justify-center mt-auto font-medium bg-pink-500 hover:bg-pink-600 rounded-lg text-neutral-50 py-2 px-3"
+            >
                 Download Image
             </button>
         </div>
@@ -123,11 +184,6 @@ function SettingsPanel(props: SettingsPanelProps) {
 }
 
 export default function February() {
-    const [paused, setPaused] = useState(true);
-    const togglePaused = useCallback(() => setPaused(p => !p), []);
-
-    const [updateFunction, setUpdateFunction] = useState<UpdateFunction>('Cyclic');
-
     return (
         <div className="flex flex-col min-h-screen">
             <Navbar />
@@ -135,13 +191,9 @@ export default function February() {
                 <Heading month={2} />
 
                 <div className="flex flex-row flex-wrap mt-6 gap-x-10 gap-y-6">
-                    <CellularAutomataComponent width={canvasWidth} height={canvasHeight} />
-                    <SettingsPanel
-                        paused={paused}
-                        togglePaused={togglePaused}
-                        updateFunction={updateFunction}
-                        setUpdateFunction={setUpdateFunction}
-                    />
+                    <CellularAutomataComponent width={canvasWidth} height={canvasHeight}>
+                        {props => <SettingsPanel {...props} />}
+                    </CellularAutomataComponent>
                 </div>
                 <h1 className="font-semibold text-4xl text-pink-500 my-8">About this demo</h1>
             </div>
