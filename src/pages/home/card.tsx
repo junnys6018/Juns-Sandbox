@@ -27,7 +27,7 @@ export default function Card(props: CardOrListProps) {
                     </span>
                 </div>
                 <h3 className="text-neutral-600 text-sm mb-3 truncate sm:mr-8">{props.subTitle}</h3>
-                <p className="text-neutral-800 line-clamp-4 h-24 sm:line-clamp-5 sm:h-[7.5rem] sm:mr-8">
+                <p className="text-neutral-800 line-clamp-4 max-h-24 sm:max-h-[none] sm:line-clamp-5 sm:h-[7.5rem] sm:mr-8">
                     {props.description}
                 </p>
             </div>

@@ -34,7 +34,7 @@ exports[`<Card /> snapshot 1`] = `
         Oscillators that sync and swarm
       </h3>
       <p
-        class="text-neutral-800 line-clamp-4 h-24 sm:line-clamp-5 sm:h-[7.5rem] sm:mr-8"
+        class="text-neutral-800 line-clamp-4 max-h-24 sm:max-h-[none] sm:line-clamp-5 sm:h-[7.5rem] sm:mr-8"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend.
       </p>
