@@ -1,5 +1,6 @@
 import { CardOrListProps } from './pages/home/home';
 import january from './icon-images/january.png';
+import february from './icon-images/february.png';
 
 const months: CardOrListProps[] = [
     {
@@ -13,12 +14,12 @@ const months: CardOrListProps[] = [
     },
     {
         to: '/february',
-        title: 'temp',
+        title: 'patchwork',
         subTitle: 'Generative art',
         month: 'Feb',
-        description: "Creating generative art using cellular automata.",
-        image: january, // todo
-        pixelated: true, // todo
+        description: 'Creating generative art using cellular automata.',
+        image: february,
+        pixelated: false,
     },
 ];
 

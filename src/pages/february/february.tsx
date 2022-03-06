@@ -7,6 +7,8 @@ import Socials from 'components/socials';
 import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
 import { FaPause, FaPlay, FaRedoAlt } from 'react-icons/fa';
 import { CellularAutomaton, Cyclic, SteppingStone } from './cellular-automaton';
+import aboutMarkdown from './about.md';
+import { AsyncMarkdown } from 'markdown';
 
 interface CellularAutomataComponentProps {
     width: number;
@@ -196,6 +198,7 @@ export default function February() {
                     </CellularAutomataComponent>
                 </div>
                 <h1 className="font-semibold text-4xl text-pink-500 my-8">About this demo</h1>
+                <AsyncMarkdown className="max-w-none" src={aboutMarkdown} />
             </div>
             <Footer />
             <Socials />

@@ -9,7 +9,7 @@ md.use(mk);
 export function Markdown(props: { markdown: string; className?: string }) {
     return (
         <article
-            className={classNames('prose prose-headings:text-pink-500', props.className)}
+            className={classNames('prose prose-lg prose-headings:text-pink-500', props.className)}
             dangerouslySetInnerHTML={{ __html: md.render(props.markdown) }}
         ></article>
     );

@@ -2,8 +2,8 @@ type color = [number, number, number];
 
 export abstract class CellularAutomaton {
     abstract update(oldImage: ImageData, newImage: ImageData, x: number, y: number): void;
+    abstract init(context: CanvasRenderingContext2D, width: number, height: number): void;
 
-    init(_context: CanvasRenderingContext2D, _width: number, _height: number) {}
     finishFrame() {}
 
     // helper function
