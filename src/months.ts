@@ -11,6 +11,15 @@ const months: CardOrListProps[] = [
         image: january,
         pixelated: true,
     },
+    {
+        to: '/february',
+        title: 'temp',
+        subTitle: 'Generative art',
+        month: 'Feb',
+        description: "Creating generative art using cellular automata.",
+        image: january, // todo
+        pixelated: true, // todo
+    },
 ];
 
 export default months;
