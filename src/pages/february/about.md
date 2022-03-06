@@ -13,15 +13,15 @@ In a stepping stone cellular automata we use a von Neumann neighborhood. The sta
 $$
 f(c, u, d, l, r) = 
 \begin{cases}
-c, &\text{if } r < a \\
-u, &\text{if } a \leq r < b \\
-d, &\text{if } b \leq r < c \\
-r, &\text{if } c \leq r < d \\
-l, &\text{if } d \leq r
+c, &\text{if } t < a \\
+u, &\text{if } a \leq t < b \\
+d, &\text{if } b \leq t < c \\
+r, &\text{if } c \leq t < d \\
+l, &\text{if } d \leq t
 \end{cases}
 $$
 
-Where $c$ is the center cell of the von Neumann neighborhood, i.e. the cell we are updating. $u$, $d$, $l$, $r$ denotes the cells above, below, left and right of the cell of interest respectively. $r$ is a real number uniformly sampled from $[0, 1]$ and $a<b<c<d$ is a partition of $[0,1]$. In this implementation we take $a=0.5$, $b=0.625$, $c=0.75$, $d=0.875$, in other words, a cell has a 50% chance of not changing color, if a cell does change color, it is equally likely to change to any of its neighbor's colors.
+Where $c$ is the center cell of the von Neumann neighborhood, i.e. the cell we are updating. $u$, $d$, $l$, $r$ denotes the cells above, below, left and right of the cell of interest respectively. $t$ is a random real number uniformly sampled from $[0, 1]$ and $a<b<c<d$ is a partition of $[0,1]$. In this implementation we take $a=0.5$, $b=0.625$, $c=0.75$, $d=0.875$, in other words, a cell has a 50% chance of not changing color, if a cell does change color, it is equally likely to change to any of its neighbor's colors.
 
 ### Cyclic Cellular Automata
 
