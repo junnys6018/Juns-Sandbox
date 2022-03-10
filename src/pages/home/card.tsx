@@ -5,7 +5,7 @@ import { CardOrListProps } from './home';
 
 export default function Card(props: CardOrListProps) {
     return (
-        <div className="group sm:grid sm:grid-cols-[200px_auto] text-center sm:text-left rounded-3xl drop-shadow-lg bg-white p-6 sm:p-0 mb-8 sm:mb-10 last:mb-0 relative transition-transform">
+        <div className="group sm:grid sm:grid-cols-[200px_auto] text-center sm:text-left rounded-3xl drop-shadow-lg bg-white p-6 sm:p-0 mb-8 sm:mb-10 last:mb-0 xl:last:mb-10 relative transition-transform">
             <Link
                 to={props.to}
                 className={classNames(
@@ -27,7 +27,7 @@ export default function Card(props: CardOrListProps) {
                     </span>
                 </div>
                 <h3 className="text-neutral-600 text-sm mb-3 truncate sm:mr-8">{props.subTitle}</h3>
-                <p className="text-neutral-800 line-clamp-4 h-24 sm:line-clamp-5 sm:h-[7.5rem] sm:mr-8">
+                <p className="text-neutral-800 line-clamp-4 max-h-24 sm:max-h-[none] sm:line-clamp-5 sm:h-[7.5rem] sm:mr-8">
                     {props.description}
                 </p>
             </div>

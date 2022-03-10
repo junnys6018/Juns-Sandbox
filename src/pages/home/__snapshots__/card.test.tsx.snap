@@ -3,7 +3,7 @@
 exports[`<Card /> snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="group sm:grid sm:grid-cols-[200px_auto] text-center sm:text-left rounded-3xl drop-shadow-lg bg-white p-6 sm:p-0 mb-8 sm:mb-10 last:mb-0 relative transition-transform"
+    class="group sm:grid sm:grid-cols-[200px_auto] text-center sm:text-left rounded-3xl drop-shadow-lg bg-white p-6 sm:p-0 mb-8 sm:mb-10 last:mb-0 xl:last:mb-10 relative transition-transform"
   >
     <a
       class="block rounded-full sm:rounded-none sm:rounded-l-3xl bg-center bg-cover mx-auto mb-1 w-25 h-25 sm:w-full sm:h-full"
@@ -34,7 +34,7 @@ exports[`<Card /> snapshot 1`] = `
         Oscillators that sync and swarm
       </h3>
       <p
-        class="text-neutral-800 line-clamp-4 h-24 sm:line-clamp-5 sm:h-[7.5rem] sm:mr-8"
+        class="text-neutral-800 line-clamp-4 max-h-24 sm:max-h-[none] sm:line-clamp-5 sm:h-[7.5rem] sm:mr-8"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis aliquam et lacus, cum eleifend.
       </p>

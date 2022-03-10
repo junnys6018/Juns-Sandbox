@@ -20,3 +20,7 @@ $$
 $$
 
 Effectively translating the image by a fixed value. We draw a vertical line from the bottom of the rasterized image to the calculated height with the sampled color $c(p)$.
+
+### References
+
+[https://github.com/s-macke/VoxelSpace](https://github.com/s-macke/VoxelSpace)
