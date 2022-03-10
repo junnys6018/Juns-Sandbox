@@ -6,7 +6,7 @@ import Socials from 'components/socials';
 
 import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
 import { FaPause, FaPlay, FaRedoAlt } from 'react-icons/fa';
-import { CellularAutomaton, Cyclic, SteppingStone } from './cellular-automaton';
+import { CellularAutomaton, Cyclic, SteppingStone, GameOfLife } from './cellular-automaton';
 import aboutMarkdown from './about.md';
 import { AsyncMarkdown } from 'markdown';
 
@@ -43,6 +43,9 @@ function CellularAutomataComponent(props: CellularAutomataComponentProps) {
                 break;
             case 'Stepping Stone':
                 setAutomaton(new SteppingStone());
+                break;
+            case 'Game of Life':
+                setAutomaton(new GameOfLife());
                 break;
         }
     }, []);
@@ -127,7 +130,7 @@ export interface SettingsPanelProps {
     reset: () => void;
 }
 
-type UpdateFunction = 'Stepping Stone' | 'Cyclic';
+type UpdateFunction = 'Stepping Stone' | 'Cyclic' | 'Game of Life';
 
 function UpdateFunctionOption(props: { value: UpdateFunction }) {
     return (
@@ -173,6 +176,7 @@ export function SettingsPanel(props: SettingsPanelProps) {
             <RadioGroup value={props.updateFunction} onChange={props.setUpdateFunction} className="mb-6">
                 <UpdateFunctionOption value="Stepping Stone" />
                 <UpdateFunctionOption value="Cyclic" />
+                <UpdateFunctionOption value="Game of Life" />
             </RadioGroup>
 
             <button

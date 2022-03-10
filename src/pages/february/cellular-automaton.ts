@@ -8,16 +8,26 @@ export abstract class CellularAutomaton {
 
     // helper function
     get(image: ImageData) {
-        return [
-            image.width,
-            image.height,
-            [
+        return {
+            width: image.width,
+            height: image.height,
+            neumann: [
                 [1, 0],
                 [image.width - 1, 0],
                 [0, 1],
                 [0, image.height - 1],
             ],
-        ] as const;
+            moore: [
+                [1, 0],
+                [1, image.height - 1],
+                [0, image.height - 1],
+                [image.width - 1, image.height - 1],
+                [image.width - 1, 0],
+                [image.width - 1, 1],
+                [0, 1],
+                [1, 1],
+            ],
+        } as const;
     }
 }
 
@@ -35,11 +45,11 @@ export class SteppingStone extends CellularAutomaton {
     }
 
     update(oldImage: ImageData, newImage: ImageData, x: number, y: number): void {
-        const [width, height, directions] = this.get(oldImage);
+        const { width, height, neumann } = this.get(oldImage);
 
         if (Math.random() < 0.5) {
             // set to color of one of its neighbours
-            const dir = directions[rand(4)];
+            const dir = neumann[rand(4)];
             set(newImage, x, y, ...get(oldImage, (x + dir[0]) % width, (y + dir[1]) % height));
         } else {
             // keep color
@@ -81,12 +91,12 @@ export class Cyclic extends CellularAutomaton {
     }
 
     update(oldImage: ImageData, newImage: ImageData, x: number, y: number): void {
-        const [width, height, directions] = this.get(oldImage);
+        const { width, height, neumann } = this.get(oldImage);
 
         let currentState = this.states[y * width + x];
         const nextState = (currentState + 1) % this.numStates;
         let update = false;
-        for (const d of directions) {
+        for (const d of neumann) {
             const idx = ((y + d[1]) % height) * width + ((x + d[0]) % width);
             if (this.states[idx] === nextState) {
                 update = true;
@@ -106,6 +116,46 @@ export class Cyclic extends CellularAutomaton {
     finishFrame() {
         // update states
         this.states.splice(0, this.states.length, ...this.newStates);
+    }
+}
+
+const dead: color = [0, 0, 0];
+const alive: color = [255, 255, 255];
+
+export class GameOfLife extends CellularAutomaton {
+    init(context: CanvasRenderingContext2D, width: number, height: number) {
+        const image = context.getImageData(0, 0, width, height);
+
+        for (let y = 0; y < image.height; y++) {
+            for (let x = 0; x < image.width; x++) {
+                set(image, x, y, ...(Math.random() < 0.5 ? dead : alive));
+            }
+        }
+
+        context.putImageData(image, 0, 0);
+    }
+
+    isAlive(image: ImageData, x: number, y: number) {
+        return get(image, x, y)[0] === 255;
+    }
+
+    update(oldImage: ImageData, newImage: ImageData, x: number, y: number): void {
+        const { width, height, moore } = this.get(oldImage);
+
+        let neighbours = 0;
+        for (const d of moore) {
+            if (this.isAlive(oldImage, (x + d[0]) % width, (y + d[1]) % height)) {
+                neighbours++;
+            }
+        }
+
+        if (this.isAlive(oldImage, x, y) && (neighbours === 2 || neighbours === 3)) {
+            set(newImage, x, y, ...alive);
+        } else if (!this.isAlive(oldImage, x, y) && neighbours === 3) {
+            set(newImage, x, y, ...alive);
+        } else {
+            set(newImage, x, y, ...dead);
+        }
     }
 }
 
